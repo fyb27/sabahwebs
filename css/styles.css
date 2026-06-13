@@ -333,7 +333,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Clients ---------- */
 .clients-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 .client-card {
@@ -345,7 +345,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .client-card:hover { border-color: var(--color-ash); transform: translateY(-4px); }
 .client-card--wide { grid-column: 1 / -1; }
-.client-card--wide .client-shot { aspect-ratio: 24 / 9; }
+.client-card--wide .client-shot { aspect-ratio: 32 / 9; }
 .client-shot {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -362,10 +362,12 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
-  padding: 24px var(--card-padding);
+  gap: 12px;
+  padding: 18px 22px;
 }
-.client-meta h3 { font-size: var(--text-subheading); font-weight: 400; letter-spacing: -0.011em; }
+.client-card--wide .client-meta { padding: 24px var(--card-padding); }
+.client-meta h3 { font-size: var(--text-body); font-weight: 400; letter-spacing: -0.011em; }
+.client-card--wide .client-meta h3 { font-size: var(--text-subheading); }
 .client-meta .cat {
   font-family: var(--font-input);
   font-size: 11px;
@@ -720,6 +722,10 @@ button { font-family: inherit; cursor: pointer; }
 /* ============================================================
    Responsive
    ============================================================ */
+@media (max-width: 1100px) {
+  .clients-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 860px) {
   :root { --section-gap: 80px; --text-display: 42px; --text-heading: 28px; --text-heading-lg: 34px; }
   .wrap { padding-inline: 20px; }
