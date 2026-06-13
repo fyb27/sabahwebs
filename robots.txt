@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-# Legacy Webflow export of the old blog index (replaced by /blog.html)
-Disallow: /blog/index.html
-
 Sitemap: https://sabahwebs.com/sitemap.xml
