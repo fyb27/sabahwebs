@@ -1,0 +1,118 @@
+==============================================================
+  SABAHWEBS — DESIGN PRINCIPLES
+  A plain-language guide to how this site is designed.
+==============================================================
+
+THE ONE BIG IDEA
+----------------
+Typography carries the weight. Colour is rationed. Depth comes
+from shades of grey, not shadows. The page reads top-to-bottom
+like a printed manifesto, calm and confident — a "designer's
+midnight gallery."
+
+
+THE CORE PRINCIPLES
+-------------------
+1. RESTRAINT OVER DECORATION
+   One accent colour. One filled button per screen. No gradients
+   or effects used as filler. If something isn't earning its place,
+   it's removed.
+
+2. HIERARCHY THROUGH TYPE, NOT BOXES
+   Size, weight and spacing create order before any container does.
+   Big quiet headlines, small technical labels.
+
+3. WHISPER, DON'T SHOUT
+   Headlines are light weight (400), not bold. Confidence at full
+   volume rather than shouting. Bold is reserved only for tiny
+   uppercase labels (OUR CLIENTS, WHY CHOOSE US).
+
+4. FLAT, ARCHITECTURAL SURFACES
+   No drop shadows. Depth is built from a 4-step grey stack and
+   thin 1px hairline borders — like signage on a dark wall, not
+   cards floating in space.
+
+5. WHITESPACE IS A FEATURE
+   Generous, consistent spacing between sections. Content is given
+   room to breathe so the eye always knows where to rest.
+
+6. EARN THE COLOUR
+   The single warm accent (a soft amber) appears at most once per
+   screen — the word "Sabah", the recommended price, the active
+   client. Everything else is greyscale, so the accent always means
+   something.
+
+7. MOTION WITH PURPOSE
+   Animation is fast, smooth and consistent — a gentle fade-and-rise
+   as things scroll into view, subtle lifts and slides on hover.
+   Never bouncy, never gratuitous. Anyone who prefers less motion
+   gets a still, calm version automatically.
+
+8. FAST BY DESIGN
+   Hand-built and lightweight, with modern compressed images, so it
+   loads quickly even on mobile data. Speed is part of the design,
+   not an afterthought.
+
+
+THE PALETTE
+-----------
+   Background ........ warm near-black  (#101010)
+   Deepest canvas .... #080808
+   Card surface ...... #212121 / #333333
+   Main text ......... soft off-white   (#f3f3f3)
+   Muted text ........ greys            (#949494 / #888888)
+   THE accent ........ amber whisper     (#e7c59a)  — used sparingly
+
+   Note: the black is warm (#101010), never a harsh pure black.
+
+
+THE TYPE
+--------
+   Headlines & UI .... Inter, light weight (400)
+   Labels & numbers .. JetBrains Mono — only for small technical
+                       labels, categories, timestamps
+   Letter-spacing .... always slightly tight (negative), never loose
+   Sizing ............ a fixed scale (13px up to 63px); fluid sizing
+                       so headlines scale smoothly on phones
+
+
+SHAPE & SPACE
+-------------
+   Corners ........... just three, used with meaning:
+                       8px  = buttons & badges
+                       20px = cards
+                       99px = pill "chat" button
+   Container ......... wide (1560px), centred, with comfortable edges
+   Rhythm ............ large, even gaps between sections
+   Long reading ...... blog articles kept narrow (~720px) for comfort
+
+
+SIGNATURE MOMENTS
+-----------------
+   THE HERO
+   A dot-matrix Mount Kinabalu drawn live on screen, drifting at a
+   different speed as you scroll (parallax) so it feels like depth,
+   not a flat picture. The headline sits above; the mountain rises
+   below.
+
+   THE CLIENT LIST
+   Not a grid of screenshots — an editorial index of client names.
+   Hover one and the rest dim, the name turns amber, and a live
+   screenshot of their site floats in following your cursor. On a
+   phone it becomes a clean stacked list with the screenshots inline.
+
+
+PRINCIPLES THAT PROTECT THE SITE
+--------------------------------
+   ACCESSIBLE      Proper headings, labels on icons, readable
+                   contrast, and a reduced-motion mode.
+   RESPONSIVE      Adapts cleanly from wide desktop to phone.
+   SEO-SAFE        Existing blog links/URLs preserved exactly so no
+                   search ranking is lost.
+   CONSISTENT      One set of design "tokens" controls colour, type
+                   and spacing everywhere — change once, change all.
+
+==============================================================
+  Built for SabahWebs — websites & SEO from Sabah.
+  Full technical detail: see handoff.md
+==============================================================
