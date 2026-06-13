@@ -1,0 +1,11 @@
+# Local preview / tooling artifacts
+.preview/
+.playwright-mcp/
+
+# Unused stray asset (not referenced by the site)
+mountk_ascii.png
+
+# OS junk
+Thumbs.db
+.DS_Store
+desktop.ini

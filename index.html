@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SabahWebs | Website Design & SEO from Sabah</title>
+  <meta name="description" content="SabahWebs is a small two-person studio from Sabah, Malaysia building affordable, personalised websites and SEO for local businesses." />
+
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/favicon-180.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SabahWebs | Website Design & SEO from Sabah" />
+  <meta property="og:description" content="A small two-person studio from Sabah building affordable, personalised websites and SEO." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta name="theme-color" content="#101010" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== Header ===================== -->
+  <header class="header" id="header">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="SabahWebs home">
+        <img src="assets/favicon-64.png" alt="" />
+        <span>sabah<b>webs</b></span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <div class="nav-links">
+          <a href="#clients">Work</a>
+          <a href="#why">Why us</a>
+          <a href="#about">About</a>
+          <a href="#pricing">Pricing</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <a class="chat-pill" href="#contact">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg>
+          Let's chat
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" id="top">
+    <div class="hero-bg" id="heroBg">
+      <picture>
+        <source type="image/avif" srcset="assets/hero-mount-1600.avif 1600w, assets/hero-mount-2400.avif 2400w" sizes="100vw" />
+        <source type="image/webp" srcset="assets/hero-mount-1600.webp 1600w, assets/hero-mount-2400.webp 2400w" sizes="100vw" />
+        <img src="assets/hero-mount.jpg" alt="Mount Kinabalu rendered as a wireframe of light against the dark Sabah sky" fetchpriority="high" decoding="async" />
+      </picture>
+    </div>
+    <div class="hero-inner" id="heroInner">
+      <h1>Websites &amp; SEO,<br />built from <span class="amber">Sabah</span>.</h1>
+      <p class="lede">A small studio crafting fast, beautiful websites for local businesses. Personalised, affordable, and made with care under Mount Kinabalu.</p>
+      <div class="hero-cta">
+        <a class="btn btn--white" href="#contact">Start a project</a>
+        <a class="btn btn--ghost" href="#clients">View work <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <!-- ===================== Clients ===================== -->
+  <section class="section" id="clients">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="label">Our clients</span>
+        <h2 class="section-title">Real businesses we've put on the map: local guides, tour operators, manufacturers and suppliers.</h2>
+      </div>
+      <div class="clients-grid">
+
+        <article class="client-card client-card--wide reveal" data-delay="0">
+          <a href="https://www.audiopro.com.my/" target="_blank" rel="noopener">
+            <div class="client-shot"><img src="assets/clients/audiopro.jpeg" alt="Audio Pro Malaysia website homepage" loading="lazy" /></div>
+            <div class="client-meta">
+              <div>
+                <h3>Audio Pro Malaysia</h3>
+                <div class="cat">Premium audio &amp; speakers · e-commerce</div>
+              </div>
+              <span class="visit">Visit <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="client-card reveal" data-delay="0">
+          <a href="https://bestsabah.com/" target="_blank" rel="noopener">
+            <div class="client-shot"><img src="assets/clients/bestsabah.jpeg" alt="Best Sabah website homepage" loading="lazy" /></div>
+            <div class="client-meta">
+              <div>
+                <h3>Best Sabah</h3>
+                <div class="cat">Local discovery platform</div>
+              </div>
+              <span class="visit">Visit <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="client-card reveal" data-delay="1">
+          <a href="https://www.borneo.tours/" target="_blank" rel="noopener">
+            <div class="client-shot"><img src="assets/clients/borneo.jpeg" alt="Borneo Outback Tours website homepage" loading="lazy" /></div>
+            <div class="client-meta">
+              <div>
+                <h3>Borneo Outback Tours</h3>
+                <div class="cat">Eco-tourism &amp; jungle adventures</div>
+              </div>
+              <span class="visit">Visit <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="client-card reveal" data-delay="0">
+          <a href="https://www.nexusaustralia.com.au/" target="_blank" rel="noopener">
+            <div class="client-shot"><img src="assets/clients/nexus.jpeg" alt="Nexus Australia website homepage" loading="lazy" /></div>
+            <div class="client-meta">
+              <div>
+                <h3>Nexus Australia</h3>
+                <div class="cat">Packaging &amp; labelling machinery</div>
+              </div>
+              <span class="visit">Visit <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="client-card reveal" data-delay="1">
+          <a href="https://www.prosteelmy.com/" target="_blank" rel="noopener">
+            <div class="client-shot"><img src="assets/clients/prosteel.jpeg" alt="ProSteel Sdn Bhd website homepage" loading="lazy" /></div>
+            <div class="client-meta">
+              <div>
+                <h3>ProSteel Sdn Bhd</h3>
+                <div class="cat">Scaffolding solutions</div>
+              </div>
+              <span class="visit">Visit <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Why choose us ===================== -->
+  <section class="section" id="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="label">Why choose us</span>
+        <h2 class="section-title">No agency overhead. Just good work, fair prices, and people who pick up the phone.</h2>
+      </div>
+      <div class="why-grid">
+
+        <div class="why-cell reveal" data-delay="0">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <h3>Affordable</h3>
+          <p>Honest, flat pricing with no surprise invoices. You'll know the cost before we start.</p>
+        </div>
+
+        <div class="why-cell reveal" data-delay="1">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg>
+          <h3>Personalised</h3>
+          <p>You talk directly to the people building your site. No account managers, no middlemen.</p>
+        </div>
+
+        <div class="why-cell reveal" data-delay="0">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 9-12h-7l1-8Z"/></svg>
+          <h3>Fast &amp; lightweight</h3>
+          <p>Clean, hand-built sites that load quickly and score well, so your visitors won't wait around.</p>
+        </div>
+
+        <div class="why-cell reveal" data-delay="1">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <h3>SEO built in</h3>
+          <p>Every site ships search-ready, so the right customers in Sabah and beyond can actually find you.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== About ===================== -->
+  <section class="section about" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="label">About us</span>
+        <h2 class="section-title">Two guys from Sabah.</h2>
+      </div>
+      <div class="about-body reveal" data-delay="1">
+        <p>We're a small team, just the two of us, designing and building websites out of Sabah, Malaysia.</p>
+        <p class="muted">Being small is the point. It means we work closely with you, learn your business properly, and stay reachable long after launch. No layers, no hand-offs, no waiting in a queue, just a direct line to the people doing the work.</p>
+        <div class="founders">
+          <div class="founder"><span class="name">The SabahWebs team</span><span class="role">Design · Build · SEO</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Pricing ===================== -->
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="label">Pricing</span>
+        <h2 class="section-title">Simple, flat pricing. Pick a size. Anything bigger, we'll talk.</h2>
+      </div>
+      <div class="price-grid">
+
+        <div class="price-card reveal" data-delay="0">
+          <div class="tier">Single page</div>
+          <div class="price">RM500<small>One static page: a landing page, profile, or portfolio.</small></div>
+          <ul>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Custom design</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Mobile responsive</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Basic SEO setup</li>
+          </ul>
+          <a class="btn btn--ghost" href="#contact">Get started</a>
+        </div>
+
+        <div class="price-card featured reveal" data-delay="1">
+          <div class="tier">Most popular</div>
+          <div class="price">RM1,000<small>Up to three static pages, a proper small-business site.</small></div>
+          <ul>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Everything in single page</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Up to 3 pages</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Contact form &amp; socials</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> On-page SEO per page</li>
+          </ul>
+          <a class="btn btn--white" href="#contact">Get started</a>
+        </div>
+
+        <div class="price-card reveal" data-delay="2">
+          <div class="tier">Bigger projects</div>
+          <div class="price talk">Let's talk<small>More pages, e-commerce, CMS, or ongoing SEO? We'll scope it together.</small></div>
+          <ul>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Custom page count</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> CMS &amp; integrations</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ongoing SEO &amp; support</li>
+          </ul>
+          <a class="btn btn--ghost" href="#contact">Discuss a project</a>
+        </div>
+
+      </div>
+      <p class="price-note">Prices in Malaysian Ringgit (MYR). One-time, flat, no hidden fees.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CTA / Contact ===================== -->
+  <section class="section cta" id="contact">
+    <div class="wrap reveal">
+      <span class="label" style="display:block;margin-bottom:20px;">Let's build something</span>
+      <h2>Got a project in mind? Tell us about it.</h2>
+      <div class="hero-cta">
+        <a class="btn btn--white" href="mailto:hello@sabahwebs.com">Email us</a>
+        <a class="btn btn--ghost" href="https://wa.me/60000000000" target="_blank" rel="noopener">WhatsApp <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div>
+        <a class="brand" href="/" aria-label="SabahWebs home">
+          <img src="assets/favicon-64.png" alt="" />
+          <span>sabah<b>webs</b></span>
+        </a>
+        <p class="foot-tag">Website design &amp; SEO, built from Sabah, Malaysia.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#clients">Work</a>
+          <a href="#why">Why us</a>
+          <a href="#about">About</a>
+          <a href="#pricing">Pricing</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:hello@sabahwebs.com">hello@sabahwebs.com</a>
+          <a href="https://wa.me/60000000000" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SabahWebs</span>
+      <span>Kota Kinabalu, Sabah · MY</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
