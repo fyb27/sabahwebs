@@ -19,7 +19,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" /></noscript>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -28,7 +29,7 @@
   <header class="header" id="header">
     <div class="wrap">
       <a class="brand" href="index.html" aria-label="SabahWebs home">
-        <img src="assets/favicon-64.png" alt="" />
+        <img src="assets/favicon-64.png" alt="" width="28" height="28" decoding="async" />
         <span>sabah<b>webs</b></span>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -238,7 +239,7 @@
     <div class="wrap">
       <div>
         <a class="brand" href="index.html" aria-label="SabahWebs home">
-          <img src="assets/favicon-64.png" alt="" />
+          <img src="assets/favicon-64.png" alt="" width="28" height="28" decoding="async" />
           <span>sabah<b>webs</b></span>
         </a>
         <p class="foot-tag">Website design &amp; SEO, built from Sabah, Malaysia.</p>
@@ -265,7 +266,7 @@
     </div>
   </footer>
 
-  <script src="js/hero-mountk.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/hero-mountk.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -32,13 +32,23 @@ addEventListener('resize',layout);layout();
 hero.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
 hero.addEventListener('pointerleave',()=>{mouse.x=mouse.y=-9999;});
 
-function frame(t){
+/* --- Skip the animation entirely on data-saver / slow / low-power devices.
+   These get a single static frame and never spin the main thread. --- */
+const conn = navigator.connection || navigator.webkitConnection || {};
+const lowPower = reduce
+  || conn.saveData === true
+  || /(^|-)2g$|^3g$/.test(conn.effectiveType || '')
+  || (navigator.deviceMemory && navigator.deviceMemory <= 4)
+  || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+const animate = !lowPower;
+
+function draw(t){
   ctx.clearRect(0,0,Wd,Hd);ctx.fillStyle='#080808';ctx.fillRect(0,0,Wd,Hd);
   ctx.fillStyle='#fff';const tm=t*0.001;
   for(let k=0;k<N;k++){
     let cx=offX+PX[k]*cell+cell/2, cy=offY+PY[k]*cell+cell/2;
     let s=PV[k];
-    if(!reduce) s=PV[k]*(0.82+0.18*Math.sin(tm*1.5+PX[k]*0.3+PY[k]*0.2));
+    if(animate) s=PV[k]*(0.82+0.18*Math.sin(tm*1.5+PX[k]*0.3+PY[k]*0.2));
     const dx=cx-mouse.x,dy=cy-mouse.y,d2=dx*dx+dy*dy,Rr=80;
     if(d2<Rr*Rr){const f=1-Math.sqrt(d2)/Rr,a=Math.atan2(dy,dx);
       cx+=Math.cos(a)*f*10;cy+=Math.sin(a)*f*10;s=Math.min(1,s+f*0.5);}
@@ -46,7 +56,26 @@ function frame(t){
     ctx.beginPath();ctx.moveTo(cx,cy-r);ctx.lineTo(cx+r,cy);
     ctx.lineTo(cx,cy+r);ctx.lineTo(cx-r,cy);ctx.closePath();ctx.fill();
   }
-  requestAnimationFrame(frame);
 }
-requestAnimationFrame(frame);
+
+if(!animate){
+  // One paint, no loop. Repaint only if the viewport size changes.
+  draw(0);
+  addEventListener('resize',()=>requestAnimationFrame(()=>draw(0)));
+}else{
+  // Animate, but only while the hero is on-screen AND the tab is visible.
+  // Once you scroll past the hero (most of the session) the loop is stopped,
+  // so it costs zero main-thread time and stops draining battery.
+  let rafId=0,onScreen=true;
+  function tick(t){ draw(t); rafId=requestAnimationFrame(tick); }
+  function update(){
+    if(onScreen && !document.hidden){ if(!rafId) rafId=requestAnimationFrame(tick); }
+    else if(rafId){ cancelAnimationFrame(rafId); rafId=0; }
+  }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(es=>{ onScreen=es[0].isIntersecting; update(); },{threshold:0}).observe(hero);
+  }
+  document.addEventListener('visibilitychange',update);
+  update();
+}
 });
