@@ -2,8 +2,8 @@
 .preview/
 .playwright-mcp/
 
-# Unused stray asset (not referenced by the site)
-mountk_ascii.png
+# Unused stray artifacts (auto-generated, not referenced by the site)
+mountk_*
 
 # OS junk
 Thumbs.db
