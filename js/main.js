@@ -59,6 +59,28 @@
   onScrollHeader();
   if (!reduceMotion) applyParallax();
 
+  /* ---------- Clients index: cursor-following preview ---------- */
+  var ciIndex = document.getElementById('clientIndex');
+  var ciPreview = document.getElementById('ciPreview');
+  if (ciIndex && ciPreview && !reduceMotion &&
+      window.matchMedia('(hover: hover)').matches) {
+    var ciRows = ciIndex.querySelectorAll('.client-row');
+    ciRows.forEach(function (row) {
+      row.addEventListener('mouseenter', function () {
+        ciPreview.style.backgroundImage = 'url("' + row.getAttribute('data-img') + '")';
+        ciPreview.classList.add('show');
+      });
+      row.addEventListener('mouseleave', function () {
+        ciPreview.classList.remove('show');
+      });
+    });
+    ciIndex.addEventListener('mousemove', function (e) {
+      var x = Math.max(190, Math.min(e.clientX, window.innerWidth - 190));
+      ciPreview.style.left = x + 'px';
+      ciPreview.style.top = e.clientY + 'px';
+    });
+  }
+
   /* ---------- Scroll reveal ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if (reduceMotion || !('IntersectionObserver' in window)) {
