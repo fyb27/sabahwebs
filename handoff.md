@@ -1,7 +1,7 @@
 # SabahWebs — Design & Build Handoff
 
 A complete record of the design language, principles, and techniques used to build this site.
-Live: **https://fyb27.github.io/sabahwebs/** · Repo: **https://github.com/fyb27/sabahwebs**
+Live: **https://sabahwebs.com** · Repo: **https://github.com/fyb27/sabahwebs**
 
 ---
 
@@ -94,6 +94,11 @@ consistent and changeable from one place.
 - **Mouse interaction:** points gently push away from the cursor — a subtle "alive" detail.
 - **Reduced-motion aware:** the shimmer/animation is disabled for users who prefer no motion
   (the mountain still renders, just still).
+- **Off-screen pause:** an `IntersectionObserver` stops the render loop the moment the hero scrolls
+  out of view, and a `visibilitychange` listener pauses it when the tab is hidden — so it costs
+  zero main-thread time for the rest of the session (the original loop ran forever).
+- **Low-power skip:** on data-saver, 2G/3G, ≤4-core, or ≤4 GB devices it paints a single static
+  frame and never animates — keeping mobile/budget phones fast.
 
 ---
 
@@ -151,10 +156,15 @@ A deliberately "studio-grade" pattern instead of a screenshot grid:
   at multiple widths via `srcset`, so the browser picks the smallest it supports for the screen.
 - **Sharpening pipeline:** the source mountain image was upscaled + unsharp-masked for crisp
   wireframe lines before export.
-- **Lightweight by hand:** no page-builder bloat; minimal third-party scripts.
-- **Loading hints:** `fetchpriority="high"` on the hero, `loading="lazy"` on below-the-fold images,
-  `decoding="async"`, and `preconnect` to the font host.
-- **Canvas hero** ships its geometry as inline data — zero extra image requests for the hero visual.
+- **Lightweight by hand:** no page-builder bloat; **zero third-party scripts** (the old Webflow
+  Google Analytics, reCAPTCHA and WebFont loader were removed site-wide — see §11).
+- **Non-render-blocking fonts:** Google Fonts load via the `media="print"`/`onload` swap with a
+  `<noscript>` fallback, so first paint never waits on the font request.
+- **Loading hints:** `loading="lazy"` on below-the-fold images, `decoding="async"` and explicit
+  `width`/`height` on logos (no layout shift), `preconnect` to the font host.
+- **Canvas hero** ships its geometry as inline data — zero extra image requests — and is render-loop
+  gated (off-screen pause + low-power skip, see §4).
+- **Scores:** mobile PageSpeed went from poor to good after gating the hero loop and unblocking fonts.
 
 ---
 
@@ -172,39 +182,58 @@ A deliberately "studio-grade" pattern instead of a screenshot grid:
 
 ---
 
-## 10. SEO & content integrity
+## 10. SEO
 
-- **URL/slug preservation:** the inherited blog posts keep their exact `blog/<slug>.html` URLs, so
-  existing inbound links and rankings are not lost.
-- **Canonical content untouched:** original post titles, meta descriptions, headings, structured
-  content and images are preserved byte-for-byte; only the *theme* (colours) was overlaid.
-- **Self-contained:** the live posts + their assets were mirrored into the repo so the whole site
-  deploys as one unit.
-- **Per-page metadata:** unique `<title>` + `meta description`, Open Graph tags, `theme-color`,
-  `lang`, and an OG share image generated from the brand mark.
-- **Clean copy:** em-dashes removed site-wide per brand voice; consistent contact details
-  (`hello@sabahwebs.com`).
+Target keyword: **"web design sabah"** (+ web design Kota Kinabalu, SEO Sabah). The site is a
+local-services business, so local intent drives the on-page strategy.
+
+- **Keyword-led homepage:** `<title>` = *Web Design Sabah | Affordable Websites & SEO — SabahWebs*,
+  meta description opens with "Web design & SEO in Sabah…", and the H1 is "Web design & SEO, built
+  from Sabah". `geo.region` (`MY-12`) + `geo.placename` meta reinforce location.
+- **Structured data (JSON-LD):**
+  - Homepage: a `@graph` of **`ProfessionalService`** (areaServed Sabah/Malaysia, Kota Kinabalu
+    address, email + phone, `makesOffer` for the three pricing tiers) + **`WebSite`**.
+  - Every post: **`BlogPosting`** with `headline`, `description`, real `datePublished`/`dateModified`,
+    `author`/`publisher` (SabahWebs + logo), and `isPartOf` the WebSite node.
+- **Canonical + social on every page:** absolute `rel="canonical"`, full Open Graph + Twitter
+  summary-large-image cards, `og:locale en_MY`, `theme-color`, `lang`.
+- **`sitemap.xml`** (16 URLs: home + blog hub + 14 posts, all matching their canonicals) and
+  **`robots.txt`** pointing to it. Submitted to Google Search Console (Domain property, DNS-verified).
+- **URL/slug preservation:** every post kept its exact `blog/<slug>.html` URL through the rebuild and
+  domain move, so inbound links and rankings carry over with no redirects needed.
+- **Clean copy & contacts:** consistent `hello@sabahwebs.com` + WhatsApp `+60 16-843 0891` site-wide.
 
 ---
 
-## 11. Inheriting the old (Webflow) blog cleanly
+## 11. Blog rebuild & old-mirror removal
 
-- **Dark-theme overlay** (`blog/dark-theme.css`): a scoped override that flips the old light Webflow
-  palette to the SabahWebs dark canvas **without editing the original markup** — done by targeting
-  structural classes and being careful about variables used in two roles (so the footer didn't break).
-- **One-file logo swap:** every inherited post referenced a single logo image, so replacing that one
-  file updated the nav + footer logo across all posts at once (new transparent mountain mark).
-- **Subpath-safe paths:** root-absolute `/...` links were rewritten to relative paths so everything
-  works under the GitHub Pages `/sabahwebs/` subpath.
+The site originally shipped as a **hybrid**: 4 hand-built posts alongside a full mirror of the old
+Webflow site (an old `blog/index.html` hub + 10 mirrored posts that pulled CSS/images from
+`cdn.prod.website-files.com` and still loaded **old Google Analytics `G-BK1FVF46K5`, reCAPTCHA, a
+WebFont loader and Webflow JS**). That has been fully resolved:
+
+- **Lossless rebuild:** each mirrored post's body lived in a single `.w-richtext` container of clean
+  semantic tags (h2/h3/h4/p/ul/strong/a) with **no inline images**, so the text was extracted and
+  poured into the hand-built dark template — content preserved verbatim, same URLs.
+- **All trackers gone:** no Google Analytics, reCAPTCHA, WebFont loader or Webflow CSS/JS anywhere on
+  the site now; every page is self-contained on `css/styles.css` + `js/main.js`.
+- **Mirror deleted:** the old `blog/index.html` hub, `mirror.py`, the orphaned `blog/dark-theme.css`,
+  and all mirror directories (`cdn.prod.website-files.com`, `ajax.googleapis.com`, `www.google.com`,
+  `www.googletagmanager.com`, `analytics.ahrefs.com`, cloudfront, first-party GA dir) were removed
+  (~3.5k lines). The blog is now one consistent, fully owned set of 14 posts.
 
 ---
 
 ## 12. Tooling & deployment
 
 - **Stack:** hand-written semantic HTML, a single CSS file driven by tokens, vanilla JS (no framework).
-- **Fonts:** Google Fonts (Inter + JetBrains Mono) with `preconnect`.
-- **Version control:** Git, hosted on GitHub.
+- **Fonts:** Google Fonts (Inter + JetBrains Mono), `preconnect` + non-render-blocking load (§8).
+- **Version control:** Git, hosted on GitHub (repo `fyb27/sabahwebs`).
 - **Hosting:** GitHub Pages, auto-deploys on every push to `main` (rebuild in ~1–2 min).
+- **Custom domain:** **sabahwebs.com** via a `CNAME` file in the repo. GoDaddy DNS points the apex
+  to the four GitHub Pages A-records (`185.199.108–111.153`) and `www` → `fyb27.github.io` (301 → apex).
+  HTTPS enforced (GitHub-provisioned cert). The domain was released from the old `sabahwebs-exact`
+  repo first so this repo could claim it. Serving at the domain root (no `/sabahwebs/` subpath).
 - **Favicon set** generated from the Mount Kinabalu peak (ICO + multiple PNG sizes + Apple touch icon).
 
 ---
@@ -214,13 +243,14 @@ A deliberately "studio-grade" pattern instead of a screenshot grid:
 ```
 index.html              Landing page (hero, clients index, why-us, about, pricing, contact)
 blog.html               Blog list (simple, text-led)
-blog/<slug>.html        Inherited posts (SEO-preserved) + 4 new studio articles (dark style)
-blog/dark-theme.css     Dark overlay for the inherited Webflow posts
+blog/<slug>.html        14 posts, all hand-built on the dark template (same URLs throughout)
 css/styles.css          The whole design system + components + responsive
 js/main.js              Header state, parallax, scroll reveal, mobile nav, client hover preview
-js/hero-mountk.js        Canvas dot-matrix Mount Kinabalu hero
+js/hero-mountk.js       Canvas dot-matrix Mount Kinabalu hero (off-screen + low-power gated)
 assets/                 Favicons, OG image, client screenshots, (legacy) hero image set
-cdn.prod.website-files.com/ …  Mirrored assets for the inherited posts
+CNAME                   Custom domain (sabahwebs.com) for GitHub Pages
+robots.txt              Allow-all + sitemap pointer
+sitemap.xml             16 URLs (home + blog hub + 14 posts)
 ```
 
 ---
