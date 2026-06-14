@@ -129,8 +129,9 @@ Motion is purposeful, fast, and consistent — never bouncy or gratuitous.
 
 A deliberately "studio-grade" pattern instead of a screenshot grid:
 
-- Clients are a **numbered typographic list** (01–05) with big names + mono category labels,
-  separated by hairlines.
+- Clients are a **numbered typographic list** (01–06) with big names + mono category labels,
+  separated by hairlines. Current roster: Audio Pro Malaysia, Best Sabah, Borneo Outback Tours,
+  Nexus Australia, ProSteel Sdn Bhd, Permai Polyclinics Fortuna (24-hour walk-in clinic).
 - **Hover:** non-hovered rows dim (focus), the active row's name + number go amber, and a **live
   screenshot of that client's site floats in following the cursor**.
 - Preview position is **clamped** so it never runs off-screen.
