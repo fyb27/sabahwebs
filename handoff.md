@@ -195,13 +195,23 @@ local-services business, so local intent drives the on-page strategy.
     address, email + phone, `makesOffer` for the three pricing tiers) + **`WebSite`**.
   - Every post: **`BlogPosting`** with `headline`, `description`, real `datePublished`/`dateModified`,
     `author`/`publisher` (SabahWebs + logo), and `isPartOf` the WebSite node.
+  - Client local-guide posts (the Permai Polyclinics Fortuna pair) also carry an **`about`
+    `MedicalClinic`** node (full NAP, `geo`, 24h `openingHours`, `sameAs` → the client's domain +
+    Instagram + Facebook), so the article is tied to the client as a recognised entity.
 - **Canonical + social on every page:** absolute `rel="canonical"`, full Open Graph + Twitter
   summary-large-image cards, `og:locale en_MY`, `theme-color`, `lang`.
-- **`sitemap.xml`** (16 URLs: home + blog hub + 14 posts, all matching their canonicals) and
+- **`sitemap.xml`** (17 URLs: home + blog hub + 15 posts, all matching their canonicals) and
   **`robots.txt`** pointing to it. Submitted to Google Search Console (Domain property, DNS-verified).
 - **URL/slug preservation:** every post kept its exact `blog/<slug>.html` URL through the rebuild and
   domain move, so inbound links and rankings carry over with no redirects needed.
 - **Clean copy & contacts:** consistent `hello@sabahwebs.com` + WhatsApp `+60 16-843 0891` site-wide.
+- **Client local-guide posts (Permai Polyclinics Fortuna):** two posts double as a service to the
+  client — the 24-hour clinic guide and a `knee-injection-kota-kinabalu.html` post targeting
+  "knee injection Kota Kinabalu / suntikan lutut". Both carry **followed** links (`rel="noopener"`
+  only, no `nofollow`) to the client's own domain **https://permaipolyclinicsfortuna.com/** with
+  descriptive anchor text, plus the `MedicalClinic` schema above. They **interlink** (each links the
+  other) to share ranking signal. The knee post is the traffic-capture play; the link equity is a
+  secondary, one-domain-level benefit. NAP in both matches the client's site exactly.
 
 ---
 
@@ -220,7 +230,7 @@ WebFont loader and Webflow JS**). That has been fully resolved:
 - **Mirror deleted:** the old `blog/index.html` hub, `mirror.py`, the orphaned `blog/dark-theme.css`,
   and all mirror directories (`cdn.prod.website-files.com`, `ajax.googleapis.com`, `www.google.com`,
   `www.googletagmanager.com`, `analytics.ahrefs.com`, cloudfront, first-party GA dir) were removed
-  (~3.5k lines). The blog is now one consistent, fully owned set of 14 posts.
+  (~3.5k lines). The blog is now one consistent, fully owned set of posts (15 as of this writing).
 
 ---
 
@@ -243,14 +253,14 @@ WebFont loader and Webflow JS**). That has been fully resolved:
 ```
 index.html              Landing page (hero, clients index, why-us, about, pricing, contact)
 blog.html               Blog list (simple, text-led)
-blog/<slug>.html        14 posts, all hand-built on the dark template (same URLs throughout)
+blog/<slug>.html        15 posts, all hand-built on the dark template (same URLs throughout)
 css/styles.css          The whole design system + components + responsive
 js/main.js              Header state, parallax, scroll reveal, mobile nav, client hover preview
 js/hero-mountk.js       Canvas dot-matrix Mount Kinabalu hero (off-screen + low-power gated)
 assets/                 Favicons, OG image, client screenshots, (legacy) hero image set
 CNAME                   Custom domain (sabahwebs.com) for GitHub Pages
 robots.txt              Allow-all + sitemap pointer
-sitemap.xml             16 URLs (home + blog hub + 14 posts)
+sitemap.xml             17 URLs (home + blog hub + 15 posts)
 ```
 
 ---
