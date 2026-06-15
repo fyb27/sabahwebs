@@ -787,27 +787,46 @@ button { font-family: inherit; cursor: pointer; }
 }
 .article-cta h3 { font-size: var(--text-heading-sm); font-weight: 400; margin-bottom: 8px; }
 .article-cta p { font-size: 15px; color: var(--color-smoke); margin-bottom: 24px; }
-.article-body .faq-q {
-  font-size: var(--text-subheading);
-  font-weight: 700;
-  color: var(--color-frost-text);
-  letter-spacing: -0.011em;
-  margin: 30px 0 8px;
+/* ============================================================
+   Service landing pages (web design / SEO) — structured layout.
+   Reuses .section, .section-head, .why-grid, .price-grid, .cta.
+   ============================================================ */
+.svc-hero { padding-top: 150px; padding-bottom: 8px; }
+.svc-hero h1 {
+  font-size: var(--text-heading-lg);
+  font-weight: 400;
+  letter-spacing: -0.48px;
+  line-height: 1.08;
+  max-width: 800px;
+  margin: 16px 0;
 }
-/* ---------- Service-page proof strip ---------- */
-.proof-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin: 32px 0 12px;
+.svc-hero p { color: var(--color-smoke); max-width: 600px; font-size: var(--text-subheading); line-height: 1.5; }
+.svc-hero .hero-cta { justify-content: flex-start; margin-top: 28px; }
+
+/* tighter section rhythm than the homepage's 120px (these pages have more sections) */
+.svc-section { padding-block: 60px; }
+.svc-section .section-head { margin-bottom: 40px; }
+
+/* intro sentence inside a .section-head */
+.section-head p { color: var(--color-smoke); font-size: var(--text-subheading); line-height: 1.5; }
+
+/* 3-up cards: how it works / who we build for */
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.svc-cell {
+  border: 1px solid var(--color-onyx-edge);
+  border-radius: var(--radius-2xl);
+  padding: 32px;
+  background: var(--surface-surface);
+  transition: border-color .35s ease, transform .35s ease;
 }
-.article-body .proof-card {
-  display: flex;
-  flex-direction: column;
-  color: inherit;
-  text-decoration: none;
-}
-.article-body .proof-card::after { display: none; }
+.svc-cell:hover { border-color: var(--color-ash); transform: translateY(-3px); }
+.svc-cell .eyebrow { font-family: var(--font-input); font-size: var(--text-caption); letter-spacing: -0.02em; color: var(--color-amber-whisper); }
+.svc-cell h3 { font-size: var(--text-subheading); font-weight: 700; letter-spacing: -0.011em; margin: 14px 0 8px; }
+.svc-cell p { font-size: 14px; line-height: 1.55; color: var(--color-smoke); }
+
+/* Proof strip */
+.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.proof-card { display: flex; flex-direction: column; color: inherit; text-decoration: none; }
 .proof-card img {
   width: 100%;
   height: auto;
@@ -819,34 +838,57 @@ button { font-family: inherit; cursor: pointer; }
   transition: border-color .3s ease, transform .3s ease;
 }
 .proof-card:hover img { border-color: var(--color-ash); transform: translateY(-2px); }
-.proof-name { font-weight: 700; color: var(--color-frost-text); font-size: 15px; margin-top: 12px; }
+.proof-name { font-weight: 700; color: var(--color-frost-text); font-size: 15px; margin-top: 14px; }
 .proof-cat { font-size: 13px; color: var(--color-smoke); margin-top: 2px; }
-@media (max-width: 860px) {
-  .proof-grid { grid-template-columns: 1fr; gap: 20px; }
+.proof-note { margin-top: 28px; max-width: 680px; font-size: 15px; line-height: 1.6; color: var(--color-smoke); }
+.proof-note a { color: var(--color-amber-whisper); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Testimonial */
+.svc-quote {
+  border-left: 2px solid var(--color-amber-whisper);
+  padding-left: 28px;
+  max-width: 760px;
+  margin-top: 48px;
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--color-frost-text);
 }
-.article-body blockquote cite {
-  display: block;
-  margin-top: 14px;
-  font-size: 14px;
-  font-style: normal;
+.svc-quote cite { display: block; margin-top: 16px; font-size: 14px; font-style: normal; font-weight: 700; color: var(--color-smoke); letter-spacing: -0.011em; }
+
+/* FAQ accordion (native details/summary, no JS) */
+.faq-list { max-width: 800px; }
+.faq-item { border-bottom: 1px solid var(--color-onyx-edge); }
+.faq-item:first-child { border-top: 1px solid var(--color-onyx-edge); }
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 0;
+  font-size: var(--text-subheading);
   font-weight: 700;
-  color: var(--color-smoke);
+  color: var(--color-frost-text);
   letter-spacing: -0.011em;
+  transition: color .25s ease;
 }
-.page-updated { font-size: 13px; color: var(--color-smoke); letter-spacing: -0.011em; margin-top: 8px; }
-.nap-line { font-size: 14px; color: var(--color-smoke); letter-spacing: -0.011em; margin-top: 20px; }
-/* Service landing pages: centered reading column, wider than the blog default */
-.service-hero .wrap,
-.service-body .wrap { max-width: 920px; }
-.service-hero .hero-cta { justify-content: flex-start; }
-/* Roomier vertical rhythm so nothing feels cramped */
-.service-body h2 { margin-top: 76px; }
-.service-body .lead { margin-bottom: 12px; }
-.service-body ul,
-.service-body ol { margin-top: 12px; }
-.service-body li { margin-bottom: 16px; }
-.service-body blockquote { margin: 56px 0; }
-.service-body .article-divider { margin: 72px 0; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--color-amber-whisper); }
+.faq-item .chev { flex-shrink: 0; color: var(--color-smoke); transition: transform .3s ease; }
+.faq-item[open] summary { color: var(--color-amber-whisper); }
+.faq-item[open] .chev { transform: rotate(180deg); }
+.faq-a { font-size: 15px; line-height: 1.6; color: var(--color-smoke); margin: 0; padding: 0 0 26px; max-width: 720px; }
+.faq-a a { color: var(--color-amber-whisper); text-decoration: underline; text-underline-offset: 3px; }
+
+/* CTA extras */
+.nap-line { font-size: 14px; color: var(--color-smoke); letter-spacing: -0.011em; margin-top: 24px; }
+.page-updated { font-size: 13px; color: var(--color-graphite); letter-spacing: -0.011em; margin-top: 18px; }
+
+@media (max-width: 860px) {
+  .svc-grid, .proof-grid { grid-template-columns: 1fr; gap: 20px; }
+  .svc-hero { padding-top: 120px; }
+}
 
 @media (max-width: 860px) {
   .article-body p, .article-body ul, .article-body ol { font-size: 16px; }
