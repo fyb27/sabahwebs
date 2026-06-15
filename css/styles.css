@@ -389,6 +389,46 @@ button { font-family: inherit; cursor: pointer; }
   50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
 }
 
+/* peak annotation - identifies the dot field as Mount Kinabalu */
+.peak-label {
+  position: absolute;
+  right: 7%;
+  top: 42%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-input);
+  pointer-events: none;
+}
+.peak-label .peak-tick {
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-graphite));
+}
+.peak-label .peak-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-right: 40px;
+}
+.peak-label .peak-name {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--color-smoke);
+}
+.peak-label .peak-elev {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-graphite);
+}
+@media (max-width: 640px) {
+  .peak-label { top: auto; bottom: 22px; }
+  .peak-label .peak-tick { width: 16px; }
+  .peak-label .peak-text { padding-right: 20px; }
+  .peak-label .peak-name { font-size: 11px; }
+}
+
 /* ---------- Clients (editorial index) ---------- */
 .client-index {
   position: relative;
