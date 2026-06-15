@@ -5,6 +5,21 @@ Live: **https://sabahwebs.com** · Repo: **https://github.com/fyb27/sabahwebs**
 
 ---
 
+## Session TL;DR — 16 Jun 2026 (late night)
+
+Small visual touch, shipped to live `main`:
+
+- **Added a Mount Kinabalu label to the homepage hero.** The hero already renders a dithered
+  point-cloud of the mountain (`js/hero-mountk.js` on `#mk-canvas`) but it was unlabelled — added a
+  quiet mono caption "Mount Kinabalu / 4,095 m" with a tick line, positioned above the right
+  shoulder of the peak (`.peak-label`, `right: 7%`, `top: 42%`). Falls back to bottom-right on
+  mobile via the `max-width: 640px` rule. Markup in `index.html` hero section; CSS after
+  `.scroll-hint` in `css/styles.css`. Verified on desktop + mobile (390px) before push — nothing
+  else touched.
+- Commit: `d5c9b13`. 2 files, +47 lines, 0 deletions.
+
+---
+
 ## Session TL;DR — 16 Jun 2026
 
 Everything below shipped to live `main` today, in order:
