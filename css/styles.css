@@ -825,7 +825,7 @@ button { font-family: inherit; cursor: pointer; }
 .svc-cell p { font-size: 14px; line-height: 1.55; color: var(--color-smoke); }
 
 /* Proof strip */
-.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .proof-card { display: flex; flex-direction: column; color: inherit; text-decoration: none; }
 .proof-card img {
   width: 100%;
@@ -885,6 +885,9 @@ button { font-family: inherit; cursor: pointer; }
 .nap-line { font-size: 14px; color: var(--color-smoke); letter-spacing: -0.011em; margin-top: 24px; }
 .page-updated { font-size: 13px; color: var(--color-graphite); letter-spacing: -0.011em; margin-top: 18px; }
 
+@media (max-width: 1100px) {
+  .proof-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 860px) {
   .svc-grid, .proof-grid { grid-template-columns: 1fr; gap: 20px; }
   .svc-hero { padding-top: 120px; }
