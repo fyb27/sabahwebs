@@ -798,8 +798,8 @@ button { font-family: inherit; cursor: pointer; }
 .proof-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin: 8px 0 16px;
+  gap: 24px;
+  margin: 32px 0 12px;
 }
 .article-body .proof-card {
   display: flex;
@@ -810,6 +810,7 @@ button { font-family: inherit; cursor: pointer; }
 .article-body .proof-card::after { display: none; }
 .proof-card img {
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: top center;
@@ -838,6 +839,14 @@ button { font-family: inherit; cursor: pointer; }
 .service-hero .wrap,
 .service-body .wrap { max-width: 920px; }
 .service-hero .hero-cta { justify-content: flex-start; }
+/* Roomier vertical rhythm so nothing feels cramped */
+.service-body h2 { margin-top: 76px; }
+.service-body .lead { margin-bottom: 12px; }
+.service-body ul,
+.service-body ol { margin-top: 12px; }
+.service-body li { margin-bottom: 16px; }
+.service-body blockquote { margin: 56px 0; }
+.service-body .article-divider { margin: 72px 0; }
 
 @media (max-width: 860px) {
   .article-body p, .article-body ul, .article-body ol { font-size: 16px; }
