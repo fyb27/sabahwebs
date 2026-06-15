@@ -6,6 +6,15 @@ const raw=D.p.split(',');const N=raw.length/3;
 const PX=new Float32Array(N),PY=new Float32Array(N),PV=new Float32Array(N);
 for(let k=0;k<N;k++){PX[k]=+raw[k*3];PY[k]=+raw[k*3+1];PV[k]=(+raw[k*3+2])/15;}
 
+/* Anchor point for the "Mount Kinabalu" annotation: the topmost solid dot within
+   the rightmost band of the cloud, so the label rests on the mountain's right-edge
+   ridge and tracks it at any viewport width. */
+let pxMin=Infinity,pxMax=-Infinity;
+for(let k=0;k<N;k++){ if(PX[k]<pxMin)pxMin=PX[k]; if(PX[k]>pxMax)pxMax=PX[k]; }
+const bandX=pxMin+(pxMax-pxMin)*0.80;
+let apexIdx=0,apexY=Infinity;
+for(let k=0;k<N;k++){ if(PV[k]>0.25 && PX[k]>=bandX && PY[k]<apexY){apexY=PY[k];apexIdx=k;} }
+
 /* ---- TUNE THESE ---- */
 const ART_H_FRAC = 0.46;   // art height as fraction of viewport (zoom: lower = smaller)
 const ART_MAX_W  = 0.78;   // art width cap as fraction of viewport width
@@ -13,6 +22,7 @@ const ANCHOR_Y   = 0.86;   // bottom of art sits at this fraction down the scree
 /* -------------------- */
 
 const c=document.getElementById('mk-canvas');if(!c){return;}const hero=c.parentElement;
+const section=hero.parentElement;const peakLabel=section&&section.querySelector('.peak-label');
 const ctx=c.getContext('2d');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let cell,offX,offY,DPR,Wd,Hd;
@@ -27,6 +37,20 @@ function layout(){
   cell=artW/C;
   offX=(Wd-artW)/2;
   offY=Hd*ANCHOR_Y - artH;     // anchor bottom of art
+  placeLabel();
+}
+
+/* Pin the peak annotation to the summit dot. Below 640px we let the CSS
+   bottom-strip layout stand, so just clear any inline overrides. */
+function placeLabel(){
+  if(!peakLabel) return;
+  if(Wd<=640){ peakLabel.style.left=peakLabel.style.top=peakLabel.style.right=peakLabel.style.transform=''; return; }
+  const apexCX=offX+PX[apexIdx]*cell+cell/2, apexCY=offY+PY[apexIdx]*cell+cell/2;
+  const cr=c.getBoundingClientRect(), sr=section.getBoundingClientRect();
+  peakLabel.style.left=(cr.left+apexCX-sr.left)+'px';
+  peakLabel.style.top=(cr.top+apexCY-sr.top-8)+'px';   // sit just above the ridge
+  peakLabel.style.right='auto';
+  peakLabel.style.transform='translateY(-100%)';
 }
 addEventListener('resize',layout);layout();
 hero.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});

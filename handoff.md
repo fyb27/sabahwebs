@@ -5,6 +5,24 @@ Live: **https://sabahwebs.com** · Repo: **https://github.com/fyb27/sabahwebs**
 
 ---
 
+## Session TL;DR — 16 Jun 2026 (late night, pt.2)
+
+Follow-up to the label below — fixed its placement on wide screens:
+
+- **The Mount Kinabalu label now tracks the peak dynamically.** The label was pinned in CSS at a
+  fixed `right: 7%`, but the mountain art is *horizontally centred* by the canvas
+  (`offX = (Wd - artW) / 2`), so on a wide 27" monitor the label drifted far right of the actual
+  summit. Fix is JS-only in `js/hero-mountk.js`: find the topmost solid dot in the rightmost 20%
+  band of the point cloud (`bandX = pxMin + (pxMax - pxMin) * 0.80`) and position `.peak-label`
+  over that ridge in `placeLabel()`, called from `layout()` (runs on load + resize). Below 640px it
+  clears the inline styles so the original mobile bottom-strip CSS still wins. The CSS `right: 7%`
+  stays as a no-JS fallback.
+- **Nothing else touched** — hero width, canvas, art geometry, and all CSS are unchanged; only the
+  text label moves. Verified at 1600px and 2560px before push.
+- Tunable: raise `0.80` toward `0.88` to push the label nearer the very right edge; lower it to pull
+  toward centre.
+- Commit: `<this commit>`. 1 file (`js/hero-mountk.js`).
+
 ## Session TL;DR — 16 Jun 2026 (late night)
 
 Small visual touch, shipped to live `main`:
