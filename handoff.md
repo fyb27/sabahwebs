@@ -5,6 +5,44 @@ Live: **https://sabahwebs.com** · Repo: **https://github.com/fyb27/sabahwebs**
 
 ---
 
+## ⚠️ CURRENT WORK IN PROGRESS — service pages (read this first)
+
+**Status as of 15 Jun 2026:** Two service landing pages exist but are **NOT live**. They were
+published, judged not good enough, and **temporarily unpublished** from production.
+
+- **Live `main`** = pre-services state. The unpublish was a clean content revert (commit
+  `bae3fe0` "Temporarily unpublish service pages for redesign"), **not** a history rewrite.
+  The live site currently has **no** Services menu and **no** service pages.
+- **All service-page work lives on branch `service-pages-wip`** (checked out locally). It holds:
+  `web-design-kota-kinabalu.html`, `seo-services-sabah.html`, the Services nav dropdown + footer
+  column across all pages, sitemap entries, CSS, and blog cross-links.
+
+**To REPUBLISH when approved:** `git checkout main && git merge service-pages-wip` (fast-forward)
+then `git push origin main`. GitHub Pages redeploys in ~1–2 min. (Do NOT force-push — the auto
+classifier blocks it; a normal merge/push is correct.) After deploy, submit the 2 URLs to GSC.
+
+**The two pages were rebuilt as proper STRUCTURED service pages** (not the earlier prose/essay
+layout the owner disliked), reusing homepage components. Section order on both:
+Hero → How it works (3 step cards) → feature grid (`.why-grid`, icon cells) → [web: Pricing cards;
+SEO: "Honest about it" content] → **collapsible FAQ** (native `<details>/<summary>`, matches
+`FAQPage` schema) → **Recent work LAST** (4 client cards incl. Nexus Australia = international
+proof) + Permai testimonial → CTA with visible NAP. New service-page CSS lives at the end of
+`css/styles.css` (`.svc-hero`, `.svc-section`, `.svc-grid`/`.svc-cell`, `.proof-grid`/`.proof-card`,
+`.svc-quote`, `.faq-item`/`.faq-a` accordion).
+
+**Owner's firm preferences (do not regress):** no em-dashes in copy (nav/footer labels excepted);
+no SEO ranking promises ("built to be found", not "win"/"shows up"); prices RM500/RM1,000 shown;
+humble voice, no cocky lines or competitor digs; Recent work at the very bottom; "Who we build for"
+section removed. SEO page reworded to sell ("what **we** handle") rather than teach DIY local SEO.
+
+**Last SEO audit (local, undeployed):** ~74/100 content + 74/100 SXO. Schema valid, FAQ matches.
+**Open TODOs needing the owner's real data (do NOT fabricate):** a founder name / "run by ___"
+line; a real client count ("X sites live"); a named person + date on the Permai quote; ideally a
+2nd testimonial. Optional: add a visible in-body link to the sibling service page; trim/expand a
+couple of feature cells for word count.
+
+---
+
 ## 1. Design philosophy
 
 The whole site follows one idea borrowed from the `DESIGN.md` reference (a Hyperstudio-style
