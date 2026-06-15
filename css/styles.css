@@ -834,12 +834,10 @@ button { font-family: inherit; cursor: pointer; }
 }
 .page-updated { font-size: 13px; color: var(--color-smoke); letter-spacing: -0.011em; margin-top: 8px; }
 .nap-line { font-size: 14px; color: var(--color-smoke); letter-spacing: -0.011em; margin-top: 20px; }
-/* Service landing pages: wide canvas with content left-aligned, like the homepage */
-.service-hero h1 { max-width: 860px; }
-.service-hero .hero-cta,
-.service-body .hero-cta { justify-content: flex-start; }
-.service-body .wrap { max-width: var(--page-max-width); }
-.service-body .wrap > * { max-width: 760px; }
+/* Service landing pages: centered reading column, wider than the blog default */
+.service-hero .wrap,
+.service-body .wrap { max-width: 920px; }
+.service-hero .hero-cta { justify-content: flex-start; }
 
 @media (max-width: 860px) {
   .article-body p, .article-body ul, .article-body ol { font-size: 16px; }
