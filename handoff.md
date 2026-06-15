@@ -5,41 +5,46 @@ Live: **https://sabahwebs.com** · Repo: **https://github.com/fyb27/sabahwebs**
 
 ---
 
-## ⚠️ CURRENT WORK IN PROGRESS — service pages (read this first)
+## CURRENT STATUS — everything below is LIVE (read this first)
 
-**Status as of 15 Jun 2026:** Two service landing pages exist but are **NOT live**. They were
-published, judged not good enough, and **temporarily unpublished** from production.
+**As of 16 Jun 2026, `main` is fully live and deployed.** The earlier "unpublish for redesign"
+state is over: the two service pages were rebuilt, re-merged into `main`, and the whole site was
+through a full SEO audit + fix pass. Nothing is parked on a side branch anymore.
 
-- **Live `main`** = pre-services state. The unpublish was a clean content revert (commit
-  `bae3fe0` "Temporarily unpublish service pages for redesign"), **not** a history rewrite.
-  The live site currently has **no** Services menu and **no** service pages.
-- **All service-page work lives on branch `service-pages-wip`** (checked out locally). It holds:
-  `web-design-kota-kinabalu.html`, `seo-services-sabah.html`, the Services nav dropdown + footer
-  column across all pages, sitemap entries, CSS, and blog cross-links.
+**Live now:**
+- **Service pages:** `web-design-kota-kinabalu.html` + `seo-services-sabah.html`, structured layout
+  (Hero → How it works → feature grid → [web: Pricing; SEO: Honest-about-it] → collapsible FAQ →
+  Recent work LAST + Permai testimonial → CTA with NAP). CSS at end of `css/styles.css`.
+- **Services nav dropdown + footer column** restored across all 19+ pages (the `.nav-dd` desktop +
+  mobile CSS was recovered from history when the unpublish had stripped it — see git log).
+- **"How it works"** is now a card-free editorial step layout (`.svc-steps`, no rounded "bubble"
+  boxes — owner disliked those). Web design page = 4 steps; SEO page = 3 steps (no "go live" wording,
+  the site is already live). SEO hero = "SEO in Sabah, done right." (dropped the jargon/retainer line).
+- Permai testimonial on both pages = the "ranking better on Google Maps" line (kept consistent).
 
-**To REPUBLISH when approved:** `git checkout main && git merge service-pages-wip` (fast-forward)
-then `git push origin main`. GitHub Pages redeploys in ~1–2 min. (Do NOT force-push — the auto
-classifier blocks it; a normal merge/push is correct.) After deploy, submit the 2 URLs to GSC.
+**Full SEO audit fix pass (commit `23af6ff`, 16 Jun):** breadcrumb schema on all posts + blog index;
+`WebPage` nodes on service pages; dates added to 4 undated posts; fixed a stale **"HappyCodes"**
+brand name in a live post; `<strong>`-as-heading → real `<h2>`; removed empty Webflow ZWJ headings;
+internal blog→service links; `defer` on all blog scripts; new **`llms.txt`**; `robots.txt` now
+welcomes AI-search crawlers (GPTBot/ClaudeBot/PerplexityBot/Google-Extended/etc.); both service
+pages added to sitemap. **Nothing was deleted** (only empty artifacts).
 
-**The two pages were rebuilt as proper STRUCTURED service pages** (not the earlier prose/essay
-layout the owner disliked), reusing homepage components. Section order on both:
-Hero → How it works (3 step cards) → feature grid (`.why-grid`, icon cells) → [web: Pricing cards;
-SEO: "Honest about it" content] → **collapsible FAQ** (native `<details>/<summary>`, matches
-`FAQPage` schema) → **Recent work LAST** (4 client cards incl. Nexus Australia = international
-proof) + Permai testimonial → CTA with visible NAP. New service-page CSS lives at the end of
-`css/styles.css` (`.svc-hero`, `.svc-section`, `.svc-grid`/`.svc-cell`, `.proof-grid`/`.proof-card`,
-`.svc-quote`, `.faq-item`/`.faq-a` accordion).
+**First ranking-focused blog post added (16 Jun):**
+`blog/how-much-does-a-website-cost-in-kota-kinabalu.html` (tag Web Design), targeting "website cost
+Kota Kinabalu / Malaysia", links into the web design service page. Listed on `blog.html` + sitemap.
 
-**Owner's firm preferences (do not regress):** no em-dashes in copy (nav/footer labels excepted);
-no SEO ranking promises ("built to be found", not "win"/"shows up"); prices RM500/RM1,000 shown;
-humble voice, no cocky lines or competitor digs; Recent work at the very bottom; "Who we build for"
-section removed. SEO page reworded to sell ("what **we** handle") rather than teach DIY local SEO.
+**Owner's firm preferences (do not regress):** no em-dashes in copy (nav/footer service labels are
+the only exception); no SEO ranking promises ("built to be found", not "win"/"#1"); prices
+RM500/RM1,000 shown; humble voice, no cocky lines or competitor digs; Recent work at the bottom.
 
-**Last SEO audit (local, undeployed):** ~74/100 content + 74/100 SXO. Schema valid, FAQ matches.
-**Open TODOs needing the owner's real data (do NOT fabricate):** a founder name / "run by ___"
-line; a real client count ("X sites live"); a named person + date on the Permai quote; ideally a
-2nd testimonial. Optional: add a visible in-body link to the sibling service page; trim/expand a
-couple of feature cells for word count.
+**⚠️ OPEN — blocked on owner's real data (do NOT fabricate; see memory `seo-pending-data-items`):**
+- **Google Business Profile is NOT yet approved.** This blocks the local map-pack channel and all
+  GBP-dependent schema (`sameAs` to GBP, `geo` coordinates, `aggregateRating`/reviews). Strategy
+  meanwhile leans on organic + AI search + content.
+- **No social profiles** to link via `sameAs` (owner confirmed none).
+- Pending: founder name(s) for author E-E-A-T; business hours; a privacy policy page.
+- **Next content queue:** more own-ranking posts — "How to set up Google Business Profile in Sabah",
+  "What to look for when hiring a web designer in KK", "WordPress vs custom for a Sabah business".
 
 ---
 
@@ -291,15 +296,18 @@ WebFont loader and Webflow JS**). That has been fully resolved:
 
 ```
 index.html              Landing page (hero, clients index, why-us, about, pricing, contact)
+web-design-kota-kinabalu.html   Service page (web design KK) — live
+seo-services-sabah.html         Service page (SEO Sabah) — live
 blog.html               Blog list (simple, text-led)
-blog/<slug>.html        15 posts, all hand-built on the dark template (same URLs throughout)
-css/styles.css          The whole design system + components + responsive
+blog/<slug>.html        16 posts, all hand-built on the dark template (same URLs throughout)
+css/styles.css          The whole design system + components + responsive (incl. .svc-* + .nav-dd)
 js/main.js              Header state, parallax, scroll reveal, mobile nav, client hover preview
 js/hero-mountk.js       Canvas dot-matrix Mount Kinabalu hero (off-screen + low-power gated)
 assets/                 Favicons, OG image, client screenshots, (legacy) hero image set
 CNAME                   Custom domain (sabahwebs.com) for GitHub Pages
-robots.txt              Allow-all + sitemap pointer
-sitemap.xml             17 URLs (home + blog hub + 15 posts)
+llms.txt                AI-search guide (summary, services, key facts) for LLM crawlers
+robots.txt              Allow-all + explicit AI-crawler allows + sitemap pointer
+sitemap.xml             20 URLs (home + 2 service pages + blog hub + 16 posts)
 ```
 
 ---
