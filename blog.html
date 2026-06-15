@@ -7,6 +7,8 @@
   <meta name="description" content="Plain-English guides on web design, SEO, and growing a small business online in Sabah, Malaysia — from the SabahWebs studio in Kota Kinabalu." />
   <link rel="canonical" href="https://sabahwebs.com/blog.html" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="geo.region" content="MY-12" />
+  <meta name="geo.placename" content="Kota Kinabalu, Sabah" />
 
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -21,7 +23,9 @@
   <meta property="og:site_name" content="SabahWebs" />
   <meta property="og:locale" content="en_MY" />
   <meta property="og:image" content="https://sabahwebs.com/assets/og-image.jpg" />
+  <meta property="og:image:alt" content="SabahWebs: web design and SEO in Sabah, Malaysia" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:description" content="Plain-English guides on web design, SEO, and growing a small business online in Sabah, Malaysia." />
   <meta name="twitter:image" content="https://sabahwebs.com/assets/og-image.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,6 +33,42 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" /></noscript>
   <link rel="stylesheet" href="css/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://sabahwebs.com/blog.html#webpage",
+        "url": "https://sabahwebs.com/blog.html",
+        "name": "Web Design & SEO Blog | SabahWebs",
+        "description": "Plain-English guides on web design, SEO, and growing a small business online in Sabah, Malaysia, from the SabahWebs studio in Kota Kinabalu.",
+        "inLanguage": "en-MY",
+        "isPartOf": { "@id": "https://sabahwebs.com/#website" },
+        "publisher": { "@id": "https://sabahwebs.com/#business" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://sabahwebs.com/blog.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://sabahwebs.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://sabahwebs.com/blog.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -36,7 +76,7 @@
   <header class="header scrolled" id="header">
     <div class="wrap">
       <a class="brand" href="index.html" aria-label="SabahWebs home">
-        <img src="assets/favicon-64.png" alt="" />
+        <img src="assets/favicon-64.png" alt="" width="28" height="28" decoding="async" />
         <span>sabah<b>webs</b></span>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -226,7 +266,7 @@
     <div class="wrap">
       <div>
         <a class="brand" href="index.html" aria-label="SabahWebs home">
-          <img src="assets/favicon-64.png" alt="" />
+          <img src="assets/favicon-64.png" alt="" width="28" height="28" decoding="async" />
           <span>sabah<b>webs</b></span>
         </a>
         <p class="foot-tag">Website design &amp; SEO, built from Sabah, Malaysia.</p>
@@ -258,6 +298,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
