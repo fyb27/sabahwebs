@@ -834,6 +834,8 @@ button { font-family: inherit; cursor: pointer; }
 }
 .page-updated { font-size: 13px; color: var(--color-smoke); letter-spacing: -0.011em; margin-top: 8px; }
 .nap-line { font-size: 14px; color: var(--color-smoke); letter-spacing: -0.011em; margin-top: 20px; }
+/* Service landing hero shares the same reading column as the article body */
+.service-hero .wrap { max-width: 720px; }
 
 @media (max-width: 860px) {
   .article-body p, .article-body ul, .article-body ol { font-size: 16px; }
