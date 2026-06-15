@@ -191,14 +191,6 @@ local-services business, so local intent drives the on-page strategy.
 - **Keyword-led homepage:** `<title>` = *Web Design Sabah | Affordable Websites & SEO — SabahWebs*,
   meta description opens with "Web design & SEO in Sabah…", and the H1 is "Web design & SEO, built
   from Sabah". `geo.region` (`MY-12`) + `geo.placename` meta reinforce location.
-- **Dedicated service landing pages:** rather than make the homepage rank for every commercial
-  query, two intent-matched pages each own one — `web-design-kota-kinabalu.html` (H1 "Web design in
-  Kota Kinabalu…", target *web design Kota Kinabalu / web designer KK*) and `seo-services-sabah.html`
-  (H1 "SEO in Sabah…", target *SEO Sabah / SEO services KK*). Both carry the geo meta, a
-  self-referencing canonical, full OG/Twitter cards, and `Service` + `BreadcrumbList` JSON-LD whose
-  `provider` references the homepage `#business` node. They cross-link the homepage, each other, and
-  the relevant blog posts; four SEO/web-design posts link back into them. Surfaced site-wide via a
-  **Services** nav dropdown (CSS-only, mobile-accordion) and a footer **Services** column.
 - **Structured data (JSON-LD):**
   - Homepage: a `@graph` of **`ProfessionalService`** (areaServed Sabah/Malaysia, Kota Kinabalu
     address, email + phone, `makesOffer` for the three pricing tiers) + **`WebSite`**.
@@ -209,9 +201,8 @@ local-services business, so local intent drives the on-page strategy.
     Instagram + Facebook), so the article is tied to the client as a recognised entity.
 - **Canonical + social on every page:** absolute `rel="canonical"`, full Open Graph + Twitter
   summary-large-image cards, `og:locale en_MY`, `theme-color`, `lang`.
-- **`sitemap.xml`** (19 URLs: home + 2 service landing pages + blog hub + 15 posts, all matching
-  their canonicals) and **`robots.txt`** pointing to it. Submitted to Google Search Console (Domain
-  property, DNS-verified). New: submit the two landing-page URLs for indexing.
+- **`sitemap.xml`** (17 URLs: home + blog hub + 15 posts, all matching their canonicals) and
+  **`robots.txt`** pointing to it. Submitted to Google Search Console (Domain property, DNS-verified).
 - **URL/slug preservation:** every post kept its exact `blog/<slug>.html` URL through the rebuild and
   domain move, so inbound links and rankings carry over with no redirects needed.
 - **Clean copy & contacts:** consistent `hello@sabahwebs.com` + WhatsApp `+60 16-843 0891` site-wide.
@@ -261,18 +252,16 @@ WebFont loader and Webflow JS**). That has been fully resolved:
 ## 13. File map
 
 ```
-index.html                      Landing page (hero, clients index, why-us, about, pricing, contact)
-web-design-kota-kinabalu.html   Service landing page — web design KK (Service + BreadcrumbList JSON-LD)
-seo-services-sabah.html         Service landing page — SEO Sabah (Service + BreadcrumbList JSON-LD)
-blog.html                       Blog list (simple, text-led)
-blog/<slug>.html                15 posts, all hand-built on the dark template (same URLs throughout)
-css/styles.css                  The whole design system + components + responsive (incl. Services nav dropdown)
-js/main.js                      Header state, parallax, scroll reveal, mobile nav, client hover preview
-js/hero-mountk.js               Canvas dot-matrix Mount Kinabalu hero (off-screen + low-power gated)
-assets/                         Favicons, OG image, client screenshots, (legacy) hero image set
-CNAME                           Custom domain (sabahwebs.com) for GitHub Pages
-robots.txt                      Allow-all + sitemap pointer
-sitemap.xml                     19 URLs (home + 2 service landing pages + blog hub + 15 posts)
+index.html              Landing page (hero, clients index, why-us, about, pricing, contact)
+blog.html               Blog list (simple, text-led)
+blog/<slug>.html        15 posts, all hand-built on the dark template (same URLs throughout)
+css/styles.css          The whole design system + components + responsive
+js/main.js              Header state, parallax, scroll reveal, mobile nav, client hover preview
+js/hero-mountk.js       Canvas dot-matrix Mount Kinabalu hero (off-screen + low-power gated)
+assets/                 Favicons, OG image, client screenshots, (legacy) hero image set
+CNAME                   Custom domain (sabahwebs.com) for GitHub Pages
+robots.txt              Allow-all + sitemap pointer
+sitemap.xml             17 URLs (home + blog hub + 15 posts)
 ```
 
 ---
