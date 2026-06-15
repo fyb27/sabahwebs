@@ -5,6 +5,34 @@ Live: **https://sabahwebs.com** · Repo: **https://github.com/fyb27/sabahwebs**
 
 ---
 
+## Session TL;DR — 16 Jun 2026
+
+Everything below shipped to live `main` today, in order:
+
+1. **Reviewed the SEO page** "what moves the needle" section — kept it as-is (transparency *is* the
+   positioning; the value is execution, not a secret checklist).
+2. **Merged the service pages into `main`** — resolved a modify/delete conflict left by the earlier
+   "unpublish for redesign" commit; both pages went live.
+3. **Fixed orphaned service pages** — the unpublish had stripped the Services nav dropdown + footer
+   column from 17 pages *and* deleted the `.nav-dd` CSS. Restored links site-wide and recovered the
+   desktop + mobile dropdown CSS from git history.
+4. **Rebuilt "How it works"** — replaced the rounded step "bubble" cards (owner: AI-slop) with a
+   card-free editorial step layout. Web design = 4 steps; SEO = 3 steps (no "go live" wording).
+5. **Refined the SEO page** — hero now "SEO in Sabah, done right." (dropped the jargon/retainer
+   line), removed step 4, matched the Permai "ranking better on Google Maps" testimonial across both
+   pages. Warmed the web design proof copy too.
+6. **Full SEO audit (7 parallel specialists) + fixed ~50 issues** — breadcrumb/WebPage schema, dates
+   on undated posts, killed a stale "HappyCodes" brand name, `<strong>`→`<h2>`, removed empty ZWJ
+   headings, blog→service internal links, `defer` on all blog scripts, new `llms.txt`, AI-crawler
+   rules in `robots.txt`, service pages added to sitemap. **Nothing deleted.**
+7. **Wrote the first ranking post** — `how-much-does-a-website-cost-in-kota-kinabalu.html`.
+8. **Confirmed GBP not yet approved** — logged all data-blocked items to memory `seo-pending-data-items`.
+
+Commits: `5b0e44f` (merge) → `0e4f67b` (nav restore) → `ab6035d` (how-it-works) → `aba0495` /
+`c25c7d0` (copy) → `23af6ff` (audit fixes) → `33f82f7` (new post + handoff).
+
+---
+
 ## CURRENT STATUS — everything below is LIVE (read this first)
 
 **As of 16 Jun 2026, `main` is fully live and deployed.** The earlier "unpublish for redesign"
