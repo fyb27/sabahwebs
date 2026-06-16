@@ -5,6 +5,39 @@ Live: **https://sabahwebs.com** · Repo: **https://github.com/fyb27/sabahwebs**
 
 ---
 
+## Session TL;DR — 16 Jun 2026 (keyword research → blog posts)
+
+Mined `keyword_research_3_sites.xlsx` (SabahWebs tab only — the other two tabs are for
+bestsabah.com and riceandprotein.com, not this repo). Collapsed the 50 keyword rows into
+clusters rather than one-post-per-keyword (the sheet's title column would otherwise produce
+dozens of thin near-duplicate pages). Wrote the **top 5** gap-filling posts.
+
+- **POSTED & LIVE (commit `613af1b`):**
+  1. `blog/google-business-profile-setup-guide.html` — targets the GBP cluster (`google business
+     profile` / `google my business`, 10K-100K, Low — the single biggest opportunity; ~13 keywords).
+     Tag: SEO. Has HowTo schema.
+  2. `blog/what-is-seo.html` — `what is seo` (1K-10K, Low). Plain-English hub, FAQ schema, links out
+     to the cost/timeline/local posts. Tag: SEO.
+  Both added to `blog.html` index (top of list) and `sitemap.xml`.
+
+- **WRITTEN BUT NOT YET POSTED** (files exist on disk, untracked in git, NOT linked anywhere):
+  3. `blog/how-to-build-a-website.html` — `how to build a website` (10K-100K, Medium). HowTo schema.
+  4. `blog/seo-malaysia-what-to-expect-and-how-to-choose.html` — `seo malaysia` / `seo agency
+     malaysia` cluster (1K-10K, Low).
+  5. `blog/web-design-malaysia.html` — `web design malaysia` (1K-10K, Low).
+
+> **⏭️ NEXT SESSION — DO THIS:** post the 3 held posts above. For each: add a `<a class="post-row">`
+> entry to the top of the list in `blog.html` and a `<url>` block (priority 0.7) to `sitemap.xml`,
+> then `git add` the 3 files + `blog.html` + `sitemap.xml` and push. Spacing them out (rather than
+> all at launch) is deliberate — steadier cadence for a new site. Decide whether to post all 3 at
+> once or drip 1-2 at a time.
+
+- All 5 follow the exact post template (BlogPosting + BreadcrumbList schema, geo meta, OG/Twitter,
+  deferred main.js). No em-dashes in body copy; no SEO ranking promises (explicitly debunked the
+  "guaranteed #1" claim in several). Internal links cross-wired among the new + existing posts.
+- **Secondary clusters still on the table** for future posts: websites-for-small-business,
+  digital-marketing-for-small-business, e-commerce/Shopify, portfolio sites. See the SabahWebs tab.
+
 ## Session TL;DR — 16 Jun 2026 (late night, pt.2)
 
 Follow-up to the label below — fixed its placement on wide screens:
